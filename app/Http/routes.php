@@ -11,4 +11,5 @@
 |
 */
 Route::get('login','Auth\AuthController@login');
+Route::resource('user','UserController');
 
