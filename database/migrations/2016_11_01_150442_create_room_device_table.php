@@ -12,7 +12,12 @@ class CreateRoomDeviceTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('room_devices', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('device_id');
+            $table->integer('room_id');
+            $table->timestamps();
+        });
     }
 
     /**

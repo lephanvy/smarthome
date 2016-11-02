@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
-
+use View;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Home\Floor;
 
 class FloorController extends Controller
 {
@@ -16,7 +18,9 @@ class FloorController extends Controller
      */
     public function index()
     {
-        //
+        $floor = Floor::all();
+
+        return View::make('home.floor')->with('floors', $floor);
     }
 
     /**
@@ -26,7 +30,7 @@ class FloorController extends Controller
      */
     public function create()
     {
-        //
+        return View::make('home.floor.create');
     }
 
     /**
@@ -37,7 +41,10 @@ class FloorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Floor::create($data);
+
+        return Redirect::to('floors');
     }
 
     /**
@@ -48,7 +55,9 @@ class FloorController extends Controller
      */
     public function show($id)
     {
-        //
+        $floor = Floor::find($id);
+
+        return View::make('home.floor.view')->with('floor', $floor);
     }
 
     /**
