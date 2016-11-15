@@ -30,7 +30,7 @@ class FloorController extends Controller
      */
     public function create()
     {
-        return View::make('home.floor.create');
+        return View::make('home.create-floor');
     }
 
     /**

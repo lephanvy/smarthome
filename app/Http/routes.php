@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('login','Auth\AuthController@login');
+Route::get('/', 'UserController@index');
+Route::get('login','Auth\AuthController@showLogin');
+Route::post('login','Auth\AuthController@doLogin');
+Route::resource('floor','Home\FloorController');
 Route::resource('user','UserController');
 

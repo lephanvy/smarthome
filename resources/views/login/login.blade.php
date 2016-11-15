@@ -16,9 +16,9 @@
     <link href="css/core.css" rel="stylesheet" type="text/css" />
     <link href="css/components.css" rel="stylesheet" type="text/css" />
     <link href="css/icons.css" rel="stylesheet" type="text/css" />
-    <link href="css/pages.css" rel="stylesheet" type="text/css" />
-    <link href="css/menu.css" rel="stylesheet" type="text/css" />
-    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/responsive.css" rel="stylesheet" type="text/css" />
     @yield('styles')
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,17 +52,17 @@
                             <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
                         </div>
                         <div class="account-content">
-                            <form class="form-horizontal" action="#">
+                            {{ Form::open(array('url' => 'login', 'class' => 'form-horizontal')) }}
 
                                 <div class="form-group ">
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="text" required="" placeholder="Username">
+                                        {{ Form::text('username', old('username'), array('placeholder' => 'Username', 'class' => 'form-control')) }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="password" required="" placeholder="Password">
+                                        {{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control')) }}
                                     </div>
                                 </div>
 
@@ -86,7 +86,7 @@
 
                                 <div class="form-group account-btn text-center m-t-10">
                                     <div class="col-xs-12">
-                                        <button class="btn w-md btn-bordered btn-danger waves-effect waves-light" type="submit">Log In</button>
+                                        {{ Form::button('Log In',array('type' => 'submit', 'class' => 'btn w-md btn-bordered btn-danger waves-effect waves-light')) }}
                                     </div>
                                 </div>
 
